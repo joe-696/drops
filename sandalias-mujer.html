@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandalias para Mujer - Drops Peru sac</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-papax6o9xgLwI+Av5L/5g1M1Avt3dK/Z61rTTIelPZ4HhKld0Gv+4hJuS3/FRytAsXbdU+Dz0v6xHswl2zO3g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Tipografías */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Contenedor general */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Barra de Navegación */
+        nav {
+            background-color: #000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: #ff0000; /* Rojo al hacer scroll */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff0000;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        nav.scrolled .logo a {
+            color: #ffffff; /* Cambia a blanco cuando el navbar es rojo */
+        }
+
+        .logo a:hover {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff0000;
+            transition: width .3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Menú Hamburguesa */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        /* Sección Hero */
+        .hero {
+            background: url('https://via.placeholder.com/1920x800/FFC0CB/FFFFFF?text=Sandalias+para+Mujer') no-repeat center center/cover;
+            color: #fff;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            animation: fadeOverlay 2s ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            animation: textAppear 1s ease-in-out;
+            animation-delay: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: textAppear 1.2s ease-in-out;
+            animation-delay: 0.7s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+            animation: buttonAppear 1.4s ease-in-out;
+            animation-delay: 0.9s;
+            animation-fill-mode: both;
+            margin-top: 20px; /* Ajuste de posición */
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOverlay {
+            from { opacity: 0; }
+            to { opacity: 0.5; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textAppear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes buttonAppear {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInCards {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Sección de Productos Detallados */
+        .productos-detalle {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .productos-detalle h2 {
+            text-align: center;
+            color: #ff0000;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+            animation-delay: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .producto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInCards 1.5s ease-in-out;
+        }
+
+        .producto img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            animation: slideUp 0.5s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .producto img:hover {
+            transform: scale(1.05);
+        }
+
+        .descripcion {
+            max-width: 600px;
+            animation: slideUp 0.5s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .descripcion h3 {
+            font-size: 28px;
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 1s ease-in-out;
+            animation-delay: 1.4s;
+            animation-fill-mode: both;
+        }
+
+        .descripcion p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+            animation: fadeIn 1s ease-in-out;
+            animation-delay: 1.6s;
+            animation-fill-mode: both;
+        }
+
+        /* Pie de Página */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer .social-icons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 0.7s;
+        }
+
+        .footer .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ff0000;
+            transform: scale(1.2);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+            animation-delay: 1s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            margin-top: 0;
+        }
+
+        /* Animación para redes sociales y botón flotante */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animación de Rebote para Botón Flotante */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .producto {
+                flex-direction: column;
+            }
+
+            .descripcion {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 10px 0;
+            }
+
+            .nav-links {
+                top: 50px;
+                right: 10px;
+                width: 180px;
+            }
+
+            .producto img {
+                height: auto;
+            }
+
+            .descripcion h3 {
+                font-size: 24px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">Drops Peru sac</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Hero Específica para Sandalias para Mujer -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sandalias de Alta Calidad para Mujer</h1>
+            <p>Elegancia y confort en cada paso que das.</p>
+            <a href="#productos" class="btn">Explorar Productos</a>
+        </div>
+    </section>
+
+    <!-- Sección de Productos Detallados -->
+    <section id="productos" class="productos-detalle">
+        <div class="container">
+            <h2>Sandalias para Mujer</h2>
+            <div class="producto">
+                <!-- Producto 1 -->
+                <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Sandalia+1" alt="Sandalia Elegante para Mujer">
+                <div class="descripcion">
+                    <h3>Sandalia Elegante para Mujer</h3>
+                    <p>Descubre nuestra sandalia elegante diseñada para ofrecer comodidad y estilo en cualquier ocasión. Fabricada con materiales de alta calidad y un diseño sofisticado.</p>
+                    <p><strong>Precio:</strong> S/. 180.00</p>
+                    <a href="compra.html" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="producto">
+                <!-- Producto 2 -->
+                <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Sandalia+2" alt="Sandalia Deportiva para Mujer">
+                <div class="descripcion">
+                    <h3>Sandalia Deportiva para Mujer</h3>
+                    <p>Nuestras sandalias deportivas para mujer están diseñadas para brindar soporte y ventilación durante tus actividades al aire libre. Perfectas para un día activo.</p>
+                    <p><strong>Precio:</strong> S/. 220.00</p>
+                    <a href="compra.html" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="producto">
+                <!-- Producto 3 -->
+                <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Sandalia+3" alt="Sandalia de Playa para Mujer">
+                <div class="descripcion">
+                    <h3>Sandalia de Playa para Mujer</h3>
+                    <p>Ligera y resistente al agua, nuestra sandalia de playa es perfecta para tus días en la costa. Diseño cómodo y fácil de limpiar.</p>
+                    <p><strong>Precio:</strong> S/. 160.00</p>
+                    <a href="compra.html" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+            <div class="producto">
+                <!-- Producto 4 -->
+                <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Sandalia+4" alt="Sandalia Casual para Mujer">
+                <div class="descripcion">
+                    <h3>Sandalia Casual para Mujer</h3>
+                    <p>Perfecta para el día a día, nuestra sandalia casual combina confort y estilo. Ideal para cualquier outfit y ocasión informal.</p>
+                    <p><strong>Precio:</strong> S/. 140.00</p>
+                    <a href="compra.html" class="btn">Comprar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="categoria">
+                <h3>Contacto</h3>
+                <div class="contact-content">
+                    <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+                    <!-- Redes Sociales -->
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/tupagina" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@tupagina" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/tupagina" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@tupagina" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Drops Peru sac. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Efecto de Scroll en la Barra de Navegación
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Funcionalidad del Menú Hamburguesa y Cierre al Hacer Clic Fuera
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerIcon = document.querySelector('.hamburger i');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                // Toggle entre icono de hamburguesa y de cierre
+                if (navLinks.classList.contains('active')) {
+                    hamburgerIcon.classList.remove('fa-bars');
+                    hamburgerIcon.classList.add('fa-times');
+                } else {
+                    hamburgerIcon.classList.remove('fa-times');
+                    hamburgerIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Cerrar el menú móvil al hacer clic fuera
+            window.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburgerIcon.classList.remove('fa-times');
+                        hamburgerIcon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Interactividad de las Tarjetas (Opcional si tienes tarjetas en esta página)
+        // En este caso, las tarjetas están en la página de productos detallados, por lo que no se necesita
+    </script>
+</body>
+</html>
