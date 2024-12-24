@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zapatillas para Hombre y Mujer - Drops Peru sac</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-papax6o9xgLwI+Av5L/5g1M1Avt3dK/Z61rTTIelPZ4HhKld0Gv+4hJuS3/FRytAsXbdU+Dz0v6xHswl2zO3g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- AOS CSS para Animaciones -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== Variables CSS ===== */
+        :root {
+            --color-principal: #ff0000;
+            --color-secundario: #000;
+            --color-fondo: #fff;
+            --color-texto: #333;
+            --color-hover: #cc0000;
+            --fuente-principal: 'Roboto', sans-serif;
+            --fuente-secundaria: 'Montserrat', sans-serif;
+        }
+
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Tipografías */
+        body {
+            font-family: var(--fuente-principal);
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+        }
+
+        /* Tipografía del Logo */
+        .navbar-brand {
+            font-family: var(--fuente-secundaria);
+            font-weight: 700;
+            color: var(--color-principal) !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #ffffff !important;
+        }
+
+        /* Fondo de la Sección Hero */
+        .hero {
+            background: url('https://via.placeholder.com/1920x800/FFC0CB/FFFFFF?text=Zapatillas+para+Hombre+y+Mujer') no-repeat center center/cover;
+            color: #fff;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: var(--fuente-secundaria);
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+
+        .btn-custom {
+            padding: 12px 25px;
+            background-color: var(--color-principal);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--color-hover);
+        }
+
+        /* Animaciones Personalizadas */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sección de Productos */
+        .productos-detalle {
+            padding: 60px 0;
+            background-color: var(--color-fondo);
+        }
+
+        .productos-detalle h2 {
+            text-align: center;
+            color: var(--color-principal);
+            font-family: var(--fuente-secundaria);
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .categoria {
+            margin-bottom: 60px;
+        }
+
+        .categoria h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--color-principal);
+            text-align: center;
+            font-family: var(--fuente-secundaria);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .categoria h3::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-principal);
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-family: var(--fuente-secundaria);
+            color: var(--color-principal);
+            font-size: 20px;
+        }
+
+        .precio {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Sección de Contacto */
+        .contacto {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+
+        .contacto h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--color-principal);
+            text-align: center;
+            font-family: var(--fuente-secundaria);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .contacto h3::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-principal);
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+
+        .contacto .contact-content {
+            text-align: center;
+        }
+
+        .contacto p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Redes Sociales en Contacto y Footer */
+        .social-icons a {
+            background-color: var(--color-principal);
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--color-hover);
+            transform: scale(1.1);
+        }
+
+        /* Pie de Página */
+        .footer {
+            background-color: var(--color-secundario);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer .social-icons a {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--color-principal);
+            background-color: rgba(255, 0, 0, 0.2);
+            transform: scale(1.2);
+        }
+
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounceIn 1s ease forwards;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        /* Animación de Rebote para Botón Flotante */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Animaciones AOS */
+        [data-aos="fade-up"] {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        [data-aos="fade-down"] {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        [data-aos="zoom-in"] {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        /* Ajustes Responsivos */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .btn-custom {
+                padding: 10px 20px;
+            }
+
+            .tarjeta img {
+                height: 150px;
+            }
+
+            .categoria h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Drops Peru sac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="hero d-flex align-items-center justify-content-center" data-aos="fade-down">
+        <div class="hero-content text-center text-white">
+            <h1>Zapatillas de Moda para Hombre y Mujer</h1>
+            <p>Estilo y confort para cada ocasión.</p>
+            <a href="#productos" class="btn btn-custom">Explorar Productos</a>
+        </div>
+    </section>
+
+    <!-- Sección de Productos Detallados -->
+    <section id="productos" class="productos-detalle">
+        <div class="container">
+            <!-- Categoría para Mujeres -->
+            <div class="categoria" data-aos="fade-up">
+                <h3>Zapatillas para Mujer</h3>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Producto 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Zapatilla+Elegante" class="card-img-top" alt="Zapatilla Elegante para Mujer" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Elegante</h5>
+                                <p class="card-text">Nuestras zapatillas elegantes están diseñadas para ofrecer comodidad y estilo en cualquier ocasión. Con materiales de alta calidad y un diseño sofisticado.</p>
+                                <p class="precio mt-auto">Precio: S/. 200.00</p>
+                                <a href="compra-zapatilla-elegante.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Zapatilla+Deportiva" class="card-img-top" alt="Zapatilla Deportiva para Mujer" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Deportiva</h5>
+                                <p class="card-text">Nuestras zapatillas deportivas para mujer están diseñadas para brindar soporte y ventilación durante tus actividades al aire libre. Perfectas para un día activo.</p>
+                                <p class="precio mt-auto">Precio: S/. 220.00</p>
+                                <a href="compra-zapatilla-deportiva.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Zapatilla+Casual" class="card-img-top" alt="Zapatilla Casual para Mujer" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Casual</h5>
+                                <p class="card-text">Perfectas para el día a día, nuestras zapatillas casuales combinan confort y estilo. Ideales para cualquier outfit informal.</p>
+                                <p class="precio mt-auto">Precio: S/. 180.00</p>
+                                <a href="compra-zapatilla-casual.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/FFC0CB/FFFFFF?text=Zapatilla+Running" class="card-img-top" alt="Zapatilla de Running para Mujer" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla de Running</h5>
+                                <p class="card-text">Optimiza tu rendimiento con nuestras zapatillas de running diseñadas para ofrecer máxima comodidad y soporte en cada zancada.</p>
+                                <p class="precio mt-auto">Precio: S/. 250.00</p>
+                                <a href="compra-zapatilla-running.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría para Hombres -->
+            <div class="categoria" data-aos="fade-up">
+                <h3>Zapatillas para Hombre</h3>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Producto 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/0000FF/FFFFFF?text=Zapatilla+Elegante" class="card-img-top" alt="Zapatilla Elegante para Hombre" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Elegante</h5>
+                                <p class="card-text">Zapatillas elegantes para hombre, combinando estilo y comodidad. Perfectas para eventos formales y uso diario.</p>
+                                <p class="precio mt-auto">Precio: S/. 210.00</p>
+                                <a href="compra-zapatilla-hombre-elegante.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/0000FF/FFFFFF?text=Zapatilla+Deportiva" class="card-img-top" alt="Zapatilla Deportiva para Hombre" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Deportiva</h5>
+                                <p class="card-text">Diseñadas para ofrecer soporte y durabilidad durante tus entrenamientos. Zapatillas deportivas ideales para cualquier actividad física.</p>
+                                <p class="precio mt-auto">Precio: S/. 230.00</p>
+                                <a href="compra-zapatilla-deportiva.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/0000FF/FFFFFF?text=Zapatilla+Casual" class="card-img-top" alt="Zapatilla Casual para Hombre" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla Casual</h5>
+                                <p class="card-text">Zapatillas casuales para hombre, perfectas para el día a día. Combinan confort y estilo para cualquier ocasión informal.</p>
+                                <p class="precio mt-auto">Precio: S/. 190.00</p>
+                                <a href="compra-zapatilla-casual.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x400/0000FF/FFFFFF?text=Zapatilla+Running" class="card-img-top" alt="Zapatilla de Running para Hombre" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Zapatilla de Running</h5>
+                                <p class="card-text">Mejora tu rendimiento con nuestras zapatillas de running para hombre, diseñadas para ofrecer máxima comodidad y soporte en cada carrera.</p>
+                                <p class="precio mt-auto">Precio: S/. 260.00</p>
+                                <a href="compra-zapatilla-running.html" class="btn btn-custom mt-2">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="contacto">
+            <div class="container">
+                <div class="categoria" data-aos="fade-up">
+                    <h3>Contacto</h3>
+                    <div class="contact-content">
+                        <p>¿Tienes alguna pregunta? ¡Estamos aquí para ayudarte!</p>
+                        <!-- Redes Sociales -->
+                        <div class="social-icons mt-4">
+                            <a href="https://www.facebook.com/tupagina" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/@tupagina" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.youtube.com/@tupagina" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <!-- Formulario de Contacto Opcional -->
+                        <div class="row justify-content-center mt-5" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-md-8">
+                                <form action="tu-endpoint" method="POST">
+                                    <div class="mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="mensaje" class="form-label">Mensaje</label>
+                                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-custom">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pie de Página -->
+        <footer class="footer" data-aos="fade-up" data-aos-delay="300">
+            <div class="container">
+                <div class="social-icons mb-3">
+                    <a href="https://www.facebook.com/tupagina" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@tupagina" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/1234567890" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/@tupagina" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>&copy; 2024 Drops Peru sac. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- Botón Flotante de WhatsApp -->
+        <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="WhatsApp" data-aos="zoom-in" data-aos-delay="500">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Bootstrap JS y dependencias (Popper.js) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- AOS JS para Animaciones -->
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        
+        <!-- JavaScript Personalizado -->
+        <script>
+            // Inicializar AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+
+            // Efecto de Scroll en la Barra de Navegación
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Funcionalidad del Menú Hamburguesa y Cierre al Hacer Clic Fuera
+            document.addEventListener('DOMContentLoaded', function() {
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                const hamburgerIcon = document.querySelector('.hamburger i');
+
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Evita que el clic se propague al window
+                    navLinks.classList.toggle('active');
+                    // Alternar entre icono de hamburguesa y de cierre
+                    if (navLinks.classList.contains('active')) {
+                        hamburgerIcon.classList.remove('fa-bars');
+                        hamburgerIcon.classList.add('fa-times');
+                        hamburger.setAttribute('aria-expanded', 'true');
+                    } else {
+                        hamburgerIcon.classList.remove('fa-times');
+                        hamburgerIcon.classList.add('fa-bars');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Cerrar el menú móvil al hacer clic fuera
+                window.addEventListener('click', function(e) {
+                    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            hamburgerIcon.classList.remove('fa-times');
+                            hamburgerIcon.classList.add('fa-bars');
+                            hamburger.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Funcionalidad para las Tarjetas de Productos
+            document.addEventListener('DOMContentLoaded', function() {
+                const tarjetas = document.querySelectorAll('.tarjeta');
+
+                tarjetas.forEach(function(tarjeta) {
+                    tarjeta.addEventListener('click', function(e) {
+                        // Evita que el clic en el botón de compra active el enlace de la tarjeta
+                        if (e.target.tagName.toLowerCase() !== 'a') {
+                            const link = this.getAttribute('data-link');
+                            if(link) {
+                                window.location.href = link;
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
